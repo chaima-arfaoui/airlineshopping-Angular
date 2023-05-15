@@ -1,0 +1,47 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 10px;margin-right: 10px;">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center"  style="margin-left: 35%;">
+                    <img src="../../../assets/logi.png" width="100" style="margin-top: 10%;" />
+                </div>
+                
+
+               <!--{{user | json}}--> 
+        
+               <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+
+
+                    <mat-form-field class="full-width" appearance="fill">
+                    
+                      <input
+                  
+                      formControlName="username"
+                      required
+                      matInput placeholder="Enter Here">
+                      
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="fill">
+                  
+                      <input
+                   
+                      formControlName="password"
+                      required
+                      matInput type="password" placeholder="Enter Here">
+                    </mat-form-field>
+  
+               
+  
+                  <div class="container text-center" style="margin-left: 62%;">
+                      <button mat-flat-button type="submit" color="primary">Login</button>
+                      <button mat-flat-button color="accent" style="margin-left: 20px;">Register</button>
+                  </div>
+              </form>
+          
+            
+            </div>
+        </div>
+    </div>
+</div>

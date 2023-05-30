@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SearchflightService } from 'src/app/_services/searchflight.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SearchflightService } from 'src/app/_services/searchflight.service';
   styleUrls: ['./search-fight.component.css']
 })
 export class SearchFightComponent {
-  constructor(private searchService: SearchflightService) { }
+  constructor(private searchService: SearchflightService , private router : Router) { }
   sidebarOpen = false;
 
 
@@ -25,7 +26,9 @@ export class SearchFightComponent {
     console.log("side", this.sidebarOpen)
   }
   Loading: boolean = false;
+  rules: boolean = false;
   response: any;
+  
   request: any = {
     "departleVol1": "2023-04-27T00:00:00",
     "departVol1": "BLR",
@@ -45,6 +48,12 @@ export class SearchFightComponent {
     "target": "Test",
     "sessionId": "6785AAC0-EC2A-468B-9957-A38B307CA0E5-29",
     "flightType": "2"
+  }
+  createFaresourceCode: any = {
+
+    "FareSourceCode": "",
+    "Target": "Test",
+    "ConversationId": "string"
   }
   profileForm = new FormGroup({
     departleVol1: new FormControl(),
@@ -83,25 +92,15 @@ export class SearchFightComponent {
       }
     );
   }
-
-  onSubmited() {
-    // console.log('heloo', this.profileForm.value);
-   
-    // this.request["departVol1"] = this.profileForm.value["departVol1"];
-    // this.request["destinationVol1"] = this.profileForm.value["destinationVol1"];
-    // this.request["departleVol1"] = this.profileForm.value["departleVol1"];
-    // this.request["retourleVol1"] = this.profileForm.value["retourleVol1"];
-    // this.request["flightType"] = this.profileForm.value["flightType"];
-    // this.request["cabinType"] = this.profileForm.value["cabinType"];
-    // this.request["qteADT"] = this.profileForm.value["qteADT"];
-
-    // console.log('request', this.request);
-    this.searchService.details(this.request).subscribe(
+  fareRules(fareSourceCode: any) {
+    this.Loading = true;
+    console.log('fareSourceCode', fareSourceCode)
+    this.createFaresourceCode["FareSourceCode"] = fareSourceCode;
+    this.searchService.createFrules(this.createFaresourceCode).subscribe(
       data => {
-        //console.log('data' , data); 
-        // console.log('pricedItineraries', data.pricedItineraries);
-        this.response = data.BaggageInfos;
-      
+        console.log('rules', data);
+     this.Loading = false;
+     this.rules = true;
 
       },
       err => {
@@ -109,5 +108,11 @@ export class SearchFightComponent {
       }
     );
   }
-
+  close(){
+    this.rules=false;
+  }
+  booking(){
+    this.router.navigate(["/booking"])
+  }
 }
+

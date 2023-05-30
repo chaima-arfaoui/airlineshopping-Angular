@@ -18,6 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FarerulesComponent } from './components/farerules/farerules.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { HistoriqueComponent } from './components/historique/historique.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { FarerulesComponent } from './components/farerules/farerules.component';
     RegisterComponent,
     SearchFightComponent,
     DashboardComponent,
-    FarerulesComponent  ],
+    FarerulesComponent,
+    BookingComponent,
+    HistoriqueComponent,
+    FooterComponent,
+    BookingDetailsComponent,
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,

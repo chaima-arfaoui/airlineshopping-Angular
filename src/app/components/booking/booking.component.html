@@ -1,0 +1,91 @@
+<br>
+<div class="container m-6" style="margin-top: 1%;">
+  <div class="card green-border" >
+    <div class="card-body">
+   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"> 
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <div >
+            <label for="inlineFormCustomSelect">Title</label>
+            <select class="custom-select mr-sm-2  green-border" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Mr</option>
+              <option value="2">Mme</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">nom</label>
+        <input type="text"  class="form-control  green-border" id="inputPassword4" placeholder="nom" formControlName="firstName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">prenom</label>
+      <input type="text" class="form-control  green-border" id="inputAddress" placeholder="prenom" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">date de naissance</label>
+      <input type="date" class="form-control  green-border" id="inputAddress2"   name="nom" required formControlName="bithday"  >
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inlineFormCustomSelect">Doc Type</label>
+            <select class="custom-select mr-sm-2  green-border" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Passport</option>
+              <option value="2">CIN</option>
+            </select>
+      </div>
+      <div class="form-group col-md-4">
+        
+        <label for="inputAddress2">date expire</label>
+        <input type="date" class="form-control  green-border" id="inputAddress2" >
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">country</label>
+        <input type="text" class="form-control  green-border" id="inputZip" formControlName="country">
+      </div>
+    </div>
+    <div class="form-row">
+       
+    <div class="form-group col-md-4">
+        <label for="inlineFormCustomSelect">Genre</label >
+            <select class="custom-select mr-sm-2  green-border" id="inlineFormCustomSelect" formControlName="genre">
+              <option selected>Choose...</option>
+              <option value="1">Femme</option>
+              <option value="2">Homme</option>
+            </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inlineFormCustomSelect">seat preference</label>
+            <select class="custom-select mr-sm-2  green-border" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Any</option>
+              <option value="2">windoww</option>
+            </select>
+      </div>
+
+    <div class="form-group col-md-4">
+        <label for="inputZip">meat preference</label>
+        <input type="text" class="form-control  green-border" id="inputZip">
+      </div>
+      </div>
+      <div class="card">
+        <div class="card-body" style="background-color: rosybrown">
+         <p>In case of LLC flights please keep in mind :</p>  
+         <p>- there is no flight rules available for LLC flights</p> 
+          <p>- document status will be issued always after the booking</p> 
+          <p>- Tickets will be issued automatically after booking</p>
+          <p> - there is no eTicket</p>
+        </div>
+      </div>
+      <div class="button-wrapper" >
+        <button type="submit" class="btn btn-primary green-button">Book and pay later</button>
+      </div>
+
+  </form></div></div>
+</div>
+<div style="padding-top: 10%;">
+
+  <app-footer></app-footer>
+</div>

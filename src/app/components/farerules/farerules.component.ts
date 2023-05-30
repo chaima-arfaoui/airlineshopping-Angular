@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SearchflightService } from 'src/app/_services/searchflight.service';
 
 @Component({
@@ -7,10 +7,15 @@ import { SearchflightService } from 'src/app/_services/searchflight.service';
   styleUrls: ['./farerules.component.css']
 })
 export class FarerulesComponent implements OnInit {
+  @Output() close = new EventEmitter();
+
   constructor(private searchService: SearchflightService) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
+  CloseBtn(){
+    this.close.emit();
 
+  }
 
 }

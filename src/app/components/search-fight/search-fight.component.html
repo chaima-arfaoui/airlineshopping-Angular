@@ -1,203 +1,212 @@
-<div class="container m-6" style="margin-top: 1%;">
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input is-invalid" type="radio" value="1" id="aller" formControlName="flightType"
-          name="flightType">
-        <label class="form-check-label" for="aller">
-          Aller
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input is-invalid" type="radio" value="2" id="allerretour" formControlName="flightType"
-          name="flightType">
-        <label class="form-check-label" for="allerretour">
-          Aller/retour
-        </label>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">depart de</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><span class="material-icons">flight_takeoff</span></div>
-            </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="depart de"
-              formControlName="departVol1">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">Arrivé à</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><span class="material-icons"><span
-                    class="material-icons">flight_land</span></span></div>
-            </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Arrivé à "
-              formControlName="destinationVol1">
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row  background">
+  <div class="col-md-8" style="padding-top: 3%;padding-left: 5%;">
 
 
-
-
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">Date</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><span class="material-icons">edit_calendar</span></div>
-            </div>
-            <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="depart de"
-              formControlName="departleVol1">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-3">
-
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">Date</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><span class="material-icons">edit_calendar</span></div>
-            </div>
-            <input type="date" class="form-control" id="inlineFormInputGroup" placeholder="Arrivé à "
-              formControlName="retourleVol1">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">Date</label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><span class="material-icons">hail</span></div>
-            </div>
-            <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="Passangers "
-              formControlName="qteADT">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-row">
-
-
-      <div class="form-group col-md-6">
-
-        <div class="col-auto">
-          <label class="sr-only" for="inlineFormInputGroup">classes</label>
-          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="cabinType">
-            <option selected value=null disabled>classes...</option>
-            <option value="Y">Economy</option>
-            <option value="C">Business classe </option>
-            <option value="F">First </option>
-            <option value="S">Premium </option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <button type="submit" class="btn btn-primary" style="width: 70%;margin-left:2%">
-          <span class="material-icons">search</span>
-          Rechercher</button>
-
-      </div>
-    </div>
-
-  </form>
-</div>
-<div class="container mt-5 mb-5" *ngFor="let item of response; index as i;">
-
-  <div class="d-flex justify-content-center row">
-    <div class="">
-      <div class="card border-0">
-        <div class="card-body d-flex flex-column justify-content-between text-white p-0">
-          <div class="p-4 bg-top">
-            <div class="d-flex flex-row justify-content-between">
-              <div class="d-flex flex-column justify-content-between align-items-center">
-                <h1>{{item.originDestinationOptions[0].flightSegment[0].departureAirportLocationCode}}</h1><span
-                  class="mb-2">Indianapolis</span><span>{{item.originDestinationOptions[0].flightSegment[0].departureDateTime|
-                  date:'mediumDate'}}</span><span>{{item.originDestinationOptions[0].flightSegment[0].departureDateTime|
-                  date:'shortTime'}}</span>
+    <div class="card green-border">
+      <div class="card-body">
+        <div style="margin-top: 1%;padding-left: 5%;">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input is-invalid" type="radio" value="1" id="aller"
+                  formControlName="flightType" name="flightType">
+                <label for="aller">
+                  Aller
+                </label>
               </div>
-              <div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                  height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z" />
-                </svg></div>
-              <div class="d-flex flex-column justify-content-between align-items-center">
-                <h1>{{item.originDestinationOptions[0].flightSegment[0].arrivalAirportLocationCode}}</h1><span
-                  class="mb-2">Paris</span><span>{{item.originDestinationOptions[0].flightSegment[0].arrivalDateTime|
-                  date:'mediumDate'}}</span><span>{{item.originDestinationOptions[0].flightSegment[0].arrivalDateTime|
-                  date:'shortTime'}}</span>
+              <div class="form-check">
+                <input class="form-check-input is-invalid" type="radio" value="2" id="allerretour"
+                  formControlName="flightType" name="flightType">
+                <label for="allerretour">
+                  Aller/retour
+                </label>
               </div>
-            
             </div>
-           
-
-
-
-
-
-
-
-<!-- 
-            <div class="container" *ngFor="let faire of response; index as i;">
-              <div class="row">
-                <div class="col-md-6">
-                  <nav class="sidebar" *ngIf="sidebarOpen">
-                    <div class="sidebar-header">
-                     
-                      <button class="btn btn-link close-sidebar" (click)="closeSidebar()">
-                        <i class="fas fa-times"></i> X</button>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">depart de</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><span class="material-icons">flight_takeoff</span></div>
                     </div>
-                    <div class="container">
-                      <form>
-                    <h3>Faire rules</h3>
-                        <p>{{faire.Arrival}}</p>
-                      </form>
-                    </div>
-                  </nav>
-                  <button class="btn btn-primary open-sidebar" (click)="openSidebar()">
-                    <i class="fas fa-plus"></i> more details
-                  </button>
+                    <input type="text" class="form-control  green-border" id="inlineFormInputGroup"
+                      placeholder="depart de" formControlName="departVol1">
+                  </div>
                 </div>
               </div>
-            </div> -->
+
+              <div class="form-group col-md-6">
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Arrivé à</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><span class="material-icons"><span
+                            class="material-icons">flight_land</span></span></div>
+                    </div>
+                    <input type="text" class="form-control  green-border" id="inlineFormInputGroup"
+                      placeholder="Arrivé à " formControlName="destinationVol1">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <br>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Date</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><span class="material-icons">edit_calendar</span></div>
+                    </div>
+                    <input type="date" class="form-control  green-border" id="inlineFormInputGroup"
+                      placeholder="depart de" formControlName="departleVol1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-3">
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Date</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><span class="material-icons">edit_calendar</span></div>
+                    </div>
+                    <input type="date" class="form-control  green-border" id="inlineFormInputGroup"
+                      placeholder="Arrivé à " formControlName="retourleVol1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-4">
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Date</label>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><span class="material-icons">hail</span></div>
+                    </div>
+                    <input type="number" class="form-control  green-border" id="inlineFormInputGroup"
+                      placeholder="Passangers " formControlName="qteADT">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="form-row">
 
 
+              <div class="form-group col-md-6">
 
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">classes</label>
+                  <select class="custom-select my-1 mr-sm-2  green-border" id="inlineFormCustomSelectPref"
+                    formControlName="cabinType">
+                    <option selected value=null disabled>classes...</option>
+                    <option value="Y">Economy</option>
+                    <option value="C">Business classe </option>
+                    <option value="F">First </option>
+                    <option value="S">Premium </option>
+                  </select>
+                </div>
+              </div>
 
+              <div class="form-group col-md-4 ">
+                <button type="submit" class="btn btn-primary  green-border green-button"
+                  style="width: 70%;margin-left:2%">
+                  <span class="material-icons">search</span>
+                  Rechercher</button>
 
+              </div>
+            </div>
 
+          </form>
+        </div>
+       
 
-
+        <div class="d-flex justify-content-center" *ngIf="Loading">
+          <div class="spinner" role="status">
+            <!-- <span class="pb-2">Loading...</span> -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+            </svg>
           </div>
+        </div>
+        <div *ngIf="rules">
+          <app-farerules (close)="close()"></app-farerules>
+        </div>
 
+
+      </div>
+    </div>
+    <div class="container mt-5 mb-5 " *ngFor="let item of response; index as i;">
+
+      <div class="d-flex justify-content-center row ">
+        <div class="">
+          <div class="card border-0 ">
+            <div class="card-body d-flex flex-column justify-content-between text-white p-0 cardd" >
+              <div class="p-4 bg-top">
+                <div class="d-flex flex-row justify-content-between">
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                    <h1>{{item.originDestinationOptions[0].flightSegment[0].departureAirportLocationCode}}</h1><span
+                      class="mb-2">Indianapolis</span><span>{{item.originDestinationOptions[0].flightSegment[0].departureDateTime|
+                      date:'mediumDate'}}</span><span>{{item.originDestinationOptions[0].flightSegment[0].departureDateTime|
+                      date:'shortTime'}}</span>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center"><svg xmlns="http://www.w3.org/2000/svg"
+                      width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z" />
+                    </svg></div>
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                    <h1>{{item.originDestinationOptions[0].flightSegment[0].arrivalAirportLocationCode}}</h1><span
+                      class="mb-2">Paris</span><span>{{item.originDestinationOptions[0].flightSegment[0].arrivalDateTime|
+                      date:'mediumDate'}}</span><span>{{item.originDestinationOptions[0].flightSegment[0].arrivalDateTime|
+                      date:'shortTime'}}</span>
+                  </div>
+
+                </div>
+                <button (click)="fareRules(item.fareSourceCode)" type="button"
+                  class="btn btn-primary">Rules</button>
+                <button (click)="booking()" type="button" class="btn btn-success float-right">Book now</button>
+
+
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="spinner-grow" role="status">
-  <span class="sr-only">Loading...</span>
-</div>
-<div class="d-flex justify-content-center" *ngIf="Loading">
-  <div class="spinner-border" role="status">
-    <span class="pb-2">Loading...</span>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
+
+  <div class="col-md-4 " style="padding-top: 3%;padding-left: 2%;">
+    <div style="width: 20rem;height: 500%;">
+      <div class="card green-border">
+        <div class="card-body ">
+          <h3>Last searches</h3>
+          <p>we're bringing you a new level of confort </p>
+        </div>
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item">Comming from <b>Tun - ORY </b>21 sept 2022</li>
+          <li class="list-group-item">Comming from <b>Tun - ORY </b>21 sept 2022</li>
+          <li class="list-group-item">Comming from <b>Tun - ORY </b>21 sept 2022</li>
+
+        </ul>
+      </div>
+    </div>
   </div>
+
+</div>
+<div style="padding-top: 10%;">
+
+  <app-footer></app-footer>
 </div>

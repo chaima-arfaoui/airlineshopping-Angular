@@ -1,0 +1,19 @@
+.about-us {
+    padding: 50px 0;
+    background-color: #f2f2f2;
+  }
+  
+  .about-us h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .about-us p {
+    margin-bottom: 20px;
+  }
+  
+  .about-us img {
+    width: 100%;
+  }
+  

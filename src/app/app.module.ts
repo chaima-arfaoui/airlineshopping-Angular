@@ -22,6 +22,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { HistoriqueComponent } from './components/historique/historique.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
+import { OurServicesComponent } from './components/our-services/our-services.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BookingDetailsComponent } from './components/booking-details/booking-de
     HistoriqueComponent,
     FooterComponent,
     BookingDetailsComponent,
+    OurServicesComponent,
      ],
   imports: [
     BrowserModule,

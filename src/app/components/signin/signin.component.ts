@@ -11,9 +11,8 @@ import { TokenStorageService } from '../../_services/token-storage.service';
 })
 export class SigninComponent {
   imageUrls: string[] = [
-    '../../../assets/travel.jpg',
-    '../../../assets/travel4.jpg',
-    '../../../assets/travel3.jpg',
+  
+    // '../../../assets/Capadocia1.jpg',
   ];
 
   currentImageIndex: number = 0;

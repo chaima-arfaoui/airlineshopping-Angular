@@ -1,5 +1,4 @@
-<div class="background-container">
-  <div class="image-layer" *ngFor="let imageUrl of imageUrls" [style.background-image]="'url(' + imageUrl + ')'"></div>
+<div class="background">
   <div class="background-container">
     <div class="bootstrap-wrapper">
       <div class="container">
@@ -15,7 +14,7 @@
 
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1" style="color: rgb(18, 18, 19);">Email address</label>
+                    <label for="exampleInputEmail1" style="color: black;">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                       formControlName="username" required matInput placeholder="Enter Here" >
                     <small id="emailHelp" class="form-text text-muted" style="color: aliceblue;">We'll never share your
@@ -26,7 +25,7 @@
 
 
                   <div class="form-group">
-                    <label for="exampleInputPassword1" style="color: rgb(18, 18, 19);">Password</label>
+                    <label for="exampleInputPassword1" style="color: black;">Password</label>
                     <input type="password" formControlName="password" required matInput class="form-control"
                       id="exampleInputPassword1" placeholder="Password">
                   </div>

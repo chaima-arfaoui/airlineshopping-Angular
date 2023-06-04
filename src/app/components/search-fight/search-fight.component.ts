@@ -9,7 +9,7 @@ import { SearchflightService } from 'src/app/_services/searchflight.service';
   styleUrls: ['./search-fight.component.css']
 })
 export class SearchFightComponent {
-  constructor(private searchService: SearchflightService , private router : Router) { }
+  constructor(private searchService: SearchflightService, private router: Router) { }
   sidebarOpen = false;
 
 
@@ -28,7 +28,7 @@ export class SearchFightComponent {
   Loading: boolean = false;
   rules: boolean = false;
   response: any;
-  
+
   request: any = {
     "departleVol1": "2023-04-27T00:00:00",
     "departVol1": "BLR",
@@ -52,6 +52,12 @@ export class SearchFightComponent {
   createFaresourceCode: any = {
 
     "FareSourceCode": "",
+    "Target": "Test",
+    "ConversationId": "string"
+  }
+  RevalidateFaresourceCode: any = {
+
+    "fareSourceCode": "",
     "Target": "Test",
     "ConversationId": "string"
   }
@@ -99,8 +105,8 @@ export class SearchFightComponent {
     this.searchService.createFrules(this.createFaresourceCode).subscribe(
       data => {
         console.log('rules', data);
-     this.Loading = false;
-     this.rules = true;
+        this.Loading = false;
+        this.rules = true;
 
       },
       err => {
@@ -108,11 +114,29 @@ export class SearchFightComponent {
       }
     );
   }
-  close(){
-    this.rules=false;
+  close() {
+    this.rules = false;
   }
-  booking(){
-    this.router.navigate(["/booking"])
+  booking(fareSourceCode: any) {
+    const FSC_KEY = 'fareSourceCode';
+    this.RevalidateFaresourceCode["fareSourceCode"] = fareSourceCode;
+    console.log('faresourcecode', this.RevalidateFaresourceCode);
+
+    this.searchService.revalidateflight(this.RevalidateFaresourceCode).subscribe(
+      data => {
+
+        let x = data["pricedItineraries"]
+        console.log('data', x[0].fareSourceCode);
+        window.sessionStorage.removeItem(FSC_KEY);
+        window.sessionStorage.setItem(FSC_KEY, x[0].fareSourceCode);
+         this.router.navigate(["/booking"])
+      },
+      err => {
+        console.log('erreur', err);
+      }
+    );
+
+   
   }
 }
 

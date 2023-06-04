@@ -19,10 +19,14 @@ export class BookingComponent {
 
   // }
 
+  farecode : any;
+  success = false ;
+  ngOnInit(): void {
+    const FSC_KEY = 'fareSourceCode';
+     this.farecode = window.sessionStorage.getItem(FSC_KEY);
+    console.log("faresourcecode" , this.farecode)
 
-  // ngOnInit(): void {
-
-  // }
+  }
 
   // formSubmit(registerForm:NgForm){
 
@@ -40,6 +44,10 @@ export class BookingComponent {
   //   }
 
   response: any
+  createFaresourceCode: any = {
+
+    "FareSourceCode": "",
+    }
 
   request: any = {
 
@@ -91,8 +99,7 @@ export class BookingComponent {
     lastName: new FormControl(),
     bithday: new FormControl(),
     sexe: new FormControl(),
-    seatPreference: new FormControl(),
-    mealPreference: new FormControl(),
+   
     country: new FormControl(),
 
   })
@@ -102,16 +109,21 @@ export class BookingComponent {
     this.request["lastName"] = this.profileForm.value["lastName"];
     this.request["bithday"] = this.profileForm.value["bithday"];
     this.request["sexe"] = this.profileForm.value["sexe"];
-    this.request["seatPreference"] = this.profileForm.value["seatPreference"];
-    this.request["mealPreference"] = this.profileForm.value["mealPreference"];
+    
     this.request["country"] = this.profileForm.value["country"];
+    this.request["fareSourceCode"] = this.farecode;
+
+    
 
     console.log('request', this.request);
+   
+
+    
     this.searchService.bookingflight(this.request).subscribe(
       data => {
         console.log('data' , data); 
         //console.log('pricedItineraries', data.pricedItineraries);
-         this.response = data;
+        this.success= true;
 
 
       },

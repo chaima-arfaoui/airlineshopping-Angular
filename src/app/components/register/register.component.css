@@ -1,9 +1,9 @@
 .green-border {
-    border-color: green !important;
+    border-color: darkblue !important;
   }
   
   .form-wrapper {
-    border: 2px solid green;
+    border: 2px solid darkblue;
     padding: 20px;
   }
   
@@ -13,7 +13,19 @@
   }
   
   .green-button {
-    background-color: green;
-    border-color: green;
+    background-color: darkblue;
+    border-color: darkblue;
   }
-  
+  .background-container {
+    position: relative;
+    width: 100%;
+    height: 89.5%;
+  }
+  .background{
+    background-image: url("src\assets\capadocia1.jpg"); 
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+   background-attachment: fixed;
+   background-position: center;
+ }

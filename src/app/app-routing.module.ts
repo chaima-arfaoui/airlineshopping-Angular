@@ -7,6 +7,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { HistoriqueComponent } from './components/historique/historique.component';
 import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
+import { OurServicesComponent } from './components/our-services/our-services.component';
+;
+
 const routes: Routes = [
   { path: 'Login', component: SigninComponent },
   { path: 'Register', component: RegisterComponent },
@@ -14,7 +17,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'historique', component: HistoriqueComponent },
-  { path: 'bookingDetails', component: BookingDetailsComponent }
+  { path: 'bookingDetails', component: BookingDetailsComponent },
+  { path: 'ourservices', component: OurServicesComponent }
+
 
 
   

@@ -1,5 +1,5 @@
 .green-border {
-  border-color: green !important;
+  border-color: darkblue !important;
 }
 
 body{
@@ -9,7 +9,7 @@ body{
 
 
 .bg-blue {
-  background: blue;
+  background: darkblue;
 }
 
 .dotted-line {
@@ -92,7 +92,7 @@ svg{
 }
 
 .form-wrapper {
-  border: 2px solid green;
+  border: 2px solid darkblue;
   padding: 20px;
 }
 
@@ -102,14 +102,14 @@ svg{
 }
 
 .green-button {
-  background-color: green;
-  border-color: green;
+  background-color: darkblue;
+  border-color: darkblue;
 }
-.cardd{
-  width: 500px;
-}
+/* .cardd{
+  width: 100px;
+} */
 .background{
-   background-image: url("src\assets\backgroundsearch.webp"); 
+   background-image: url("src\assets\capadocia1.jpg"); 
    background-size: cover;
    width: 100vw;
    height: 100%;
